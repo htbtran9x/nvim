@@ -43,6 +43,8 @@ packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  use 'folke/tokyonight.nvim'
   use 'akinsho/nvim-bufferline.lua'
   use 'lewis6991/gitsigns.nvim'
   -- use 'OmniSharp/omnisharp-vim'
