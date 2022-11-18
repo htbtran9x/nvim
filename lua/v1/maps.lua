@@ -24,6 +24,8 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
-keymap.set('n', 'se', ':NvimTreeToggle<CR>')
-keymap.set('n', 'K', '<C-u>')
-keymap.set('n', 'J', '<C-d>')
+keymap.set('n', 'se', ':NvimTreeToggle<CR>') -- file tree
+keymap.set('n', 'K', '<C-u>') -- PageDown
+keymap.set('n', 'J', '<C-d>') -- PageUp
+keymap.set('n', 'L', '$') -- move to last line
+keymap.set('n', 'H', '0') -- move to first line
