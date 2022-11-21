@@ -39,3 +39,15 @@ keymap.set('n', 'K', '<C-u>') -- PageDown
 keymap.set('n', 'J', '<C-d>') -- PageUp
 keymap.set('n', 'L', '$') -- move to last line
 keymap.set('n', 'H', '0') -- move to first line
+
+-- switch between tab
+keymap.set('n', 'n1', '1gt')
+keymap.set('n', 'n2', '2gt')
+keymap.set('n', 'n3', '3gt')
+keymap.set('n', 'n4', '4gt')
+keymap.set('n', 'n5', '5gt')
+keymap.set('n', 'n6', '6gt')
+keymap.set('n', 'n7', '7gt')
+keymap.set('n', 'n8', '8gt')
+keymap.set('n', 'n9', '9gt')
+keymap.set('n', 'nl', 'g<Tab>')

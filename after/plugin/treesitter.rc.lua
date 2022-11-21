@@ -4,7 +4,7 @@ if (not status) then return end
 ts.setup {
   highlight = {
     enable = true,
-    disable = { "lua" },
+    disable = { "" },
     additional_vim_regex_highlighting = true,
   },
   indent = {
