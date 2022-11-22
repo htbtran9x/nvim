@@ -45,12 +45,18 @@ telescope.load_extension("file_browser")
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
       no_ignore = false,
       hidden = true
     })
   end)
 vim.keymap.set('n', ';r', function()
-  builtin.live_grep()
+  builtin.live_grep({
+    path = "%:p:h",
+    no_ignore = false,
+    cwd = telescope_buffer_dir(),
+  })
 end)
 vim.keymap.set('n', '\\\\', function()
   builtin.buffers()
@@ -75,4 +81,7 @@ vim.keymap.set("n", "sf", function()
     initial_mode = "normal",
     layout_config = { height = 40 }
   })
+end)
+vim.keymap.set("n", "<Space>ff", function()
+  telescope.extensions.file_browser.file_browser()
 end)

@@ -52,4 +52,5 @@ packer.startup(function(use)
   -- use 'OmniSharp/omnisharp-vim'
   -- use 'OmniSharp/omnisharp-roslyn'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
+  use 'glepnir/dashboard-nvim'
 end)
