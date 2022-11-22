@@ -56,7 +56,7 @@ keymap.set('n', 'n9', '9gt')
 keymap.set('n', 'nl', 'g<Tab>')
 
 -- map event
-keymap.set('n', '<Space>pp', ':edit ~/.config/nvim/lua/v1/plugins.lua<CR>')
-keymap.set('n', '<Space>ch', ':checkhealth<CR>')
-keymap.set('n', '<Space>ps', ':PackerSync<CR>')
-keymap.set('n', '<Space>cf', ':edit ~/.config/nvim/after/plugin/dashboard.lua<CR>')
+keymap.set('n', '<Space>mp', ':edit ~/.config/nvim/lua/v1/plugins.lua<CR>')
+keymap.set('n', '<Space>mh', ':checkhealth<CR>')
+keymap.set('n', '<Space>ms', ':PackerSync<CR>')
+keymap.set('n', '<Space>mc', ':edit ~/.config/nvim/after/plugin/dashboard.lua<CR>')
