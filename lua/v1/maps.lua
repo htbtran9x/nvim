@@ -23,6 +23,9 @@ keymap.set('', '<Space>k', '<C-w>k')
 keymap.set('', '<Space>j', '<C-w>j')
 keymap.set('', '<Space>l', '<C-w>l')
 
+keymap.set('i', 'jj', '<esc>')
+
+keymap.set('n', 'sc', ':noh<CR>')
 
 -- Resize window
 keymap.set('n', '<C-w><left>', '<C-w><')
@@ -38,6 +41,8 @@ keymap.set('n', 's=', '<C-w>=')
 
 keymap.set('n', 'se', ':NvimTreeToggle<CR>') -- file tree
 
+keymap.set('v', 'K', '<C-u>') -- PageDown
+keymap.set('v', 'J', '<C-d>') -- PageUp
 keymap.set('n', 'K', '<C-u>') -- PageDown
 keymap.set('n', 'J', '<C-d>') -- PageUp
 keymap.set('n', 'L', '$') -- move to last line
