@@ -21,10 +21,14 @@ dashboard.custom_header = {
 }
 
 dashboard.custom_center = {
-  { icon = '📂  ',
-    desc = '1.🅵 ile Browser                   ',
-    action = 'Telescope file_browser',
+  { icon = '📝  ',
+    desc = '0.Find 🅵 iles                     ',
+    action = 'Telescope find_files',
     shortcut = 'Space m f' },
+  { icon = '📂  ',
+    desc = '1.File 🅱 rowser                   ',
+    action = 'Telescope file_browser',
+    shortcut = 'Space m b' },
   { icon = '🧩  ',
     desc = '2.🅿 lugins                        ',
     action = 'edit ~/.config/nvim/lua/v1/plugins.lua',
