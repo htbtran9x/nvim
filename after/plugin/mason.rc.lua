@@ -19,10 +19,18 @@ require("mason-lspconfig").setup({
 })
 require("mason-null-ls").setup({
   ensure_installed = {
+    "tsserver",
     "prettier", -- ts/js formatter
     "stylua", -- lua formatter
-    -- "eslint_d", -- ts/js linter
+    "html",
+    "cssls",
+    "tailwindcss",
+    "sumneko_lua",
+    "dockerls",
+    -- "eslint",
+    "emmet_ls",
   },
+  automatic_installation = true, -- not the same as ensure_installed
 })
 -- v1
 -- local status, mason = pcall(require, "mason")

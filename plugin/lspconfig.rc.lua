@@ -1,5 +1,16 @@
 --vim.lsp.set_log_level("debug")
-
+local status, nvim_lsp1 = pcall(require, "nvim-lsp-installer")
+if (not status) then return end
+nvim_lsp1.setup({
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
@@ -84,25 +95,25 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local pid = vim.fn.getpid()
+-- local pid = vim.fn.getpid()
 
-local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
+-- local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
 
-nvim_lsp.omnisharp.setup {
-  cmd = { omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
--- nvim_lsp.omnisharp_mono.setup {
+-- nvim_lsp.omnisharp.setup {
+--   cmd = { omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
-
-nvim_lsp.csharp_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+--
+-- -- nvim_lsp.omnisharp_mono.setup {
+-- --   on_attach = on_attach,
+-- --   capabilities = capabilities
+-- -- }
+--
+-- nvim_lsp.csharp_ls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities

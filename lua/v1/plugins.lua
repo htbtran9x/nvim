@@ -24,6 +24,8 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
+  use 'williamboman/nvim-lsp-installer'
+  use 'neovim/nvim-lspconfig'
   use 'jayp0521/mason-null-ls.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'glepnir/lspsaga.nvim' -- LSP UIs
