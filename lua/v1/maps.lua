@@ -43,6 +43,8 @@ keymap.set('n', 'se', ':NvimTreeToggle<CR>') -- file tree
 
 keymap.set('v', 'K', '<C-u>') -- PageDown
 keymap.set('v', 'J', '<C-d>') -- PageUp
+keymap.set('v', 'L', '$') -- PageUp
+keymap.set('v', 'H', '0') -- PageUp
 keymap.set('n', 'K', '<C-u>') -- PageDown
 keymap.set('n', 'J', '<C-d>') -- PageUp
 keymap.set('n', 'L', '$') -- move to last line
