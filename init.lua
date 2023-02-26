@@ -1,10 +1,13 @@
 require('v1.base')
 require('v1.highlights')
-require('v1.maps')
-require('v1.plugins')
 
+if vim.g.vscode then
+  require('v1.vs-maps')
+else
+  require('v1.maps')
+  require('v1.plugins')
+end
 
--- exists('g:vscode')
 
 local has = vim.fn.has
 local is_mac = has "macunix"

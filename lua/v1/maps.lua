@@ -8,8 +8,8 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 -- New tab
 keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split window
-keymap.set('n', 'sd', ':split<Return><C-w>w', { silent = true })
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+keymap.set('n', 'sf', ':split<Return><C-w>w')
+keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 -- Move window
 keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('', 's<left>', '<C-w>h')

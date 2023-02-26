@@ -10,11 +10,11 @@ require("mason-lspconfig").setup({
     "tsserver",
     "html",
     "cssls",
-    "csharp_ls",
+    -- "csharp_ls",
     -- "omnisharp_mono",
     -- "omnisharp",
     "tailwindcss",
-    "sumneko_lua",
+    -- "sumneko_lua",
   }
 })
 require("mason-null-ls").setup({
@@ -25,7 +25,7 @@ require("mason-null-ls").setup({
     "html",
     "cssls",
     "tailwindcss",
-    "sumneko_lua",
+    -- "sumneko_lua",
     "dockerls",
     -- "eslint",
     "emmet_ls",

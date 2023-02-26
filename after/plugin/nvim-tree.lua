@@ -28,7 +28,8 @@ nvimtree.setup({
   view = {
     mappings = {
       list = {
-        { key = "<Esc>", action = "close" }
+        { key = "<Esc>", action = "close" },
+        { key = "s", action = "close" }
       }
     }
   }

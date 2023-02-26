@@ -42,17 +42,9 @@ packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/zen-mode.nvim'
-
-  -- use({
-  --   "iamcco/markdown-preview.nvim",
-  --   run = function() vim.fn["mkdp#util#install"]() end,
-  -- })
-
   use 'folke/tokyonight.nvim'
   use 'akinsho/nvim-bufferline.lua'
   use 'lewis6991/gitsigns.nvim'
-  -- use 'OmniSharp/omnisharp-vim'
-  -- use 'OmniSharp/omnisharp-roslyn'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
   use 'glepnir/dashboard-nvim'
 end)

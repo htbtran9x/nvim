@@ -1,17 +1,6 @@
 --vim.lsp.set_log_level("debug")
-local status, nvim_lsp1 = pcall(require, "nvim-lsp-installer")
-if (not status) then return end
-nvim_lsp1.setup({
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-})
-local status, nvim_lsp = pcall(require, "lspconfig")
+
+local status, nvim_lsp = pcall(require, "lspconfig.config")
 if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
@@ -33,7 +22,6 @@ end
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   --Enable completion triggered by <c-x><c-o>
   --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -42,26 +30,10 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-
-  buf_set_keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-  buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-  buf_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-  buf_set_keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-  buf_set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-  buf_set_keymap("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-  buf_set_keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-  buf_set_keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-  buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-  -- buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-  buf_set_keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
-  buf_set_keymap('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
-  buf_set_keymap('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
-
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
 protocol.CompletionItemKind = {
@@ -95,25 +67,6 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- local pid = vim.fn.getpid()
-
--- local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
-
--- nvim_lsp.omnisharp.setup {
---   cmd = { omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
---
--- -- nvim_lsp.omnisharp_mono.setup {
--- --   on_attach = on_attach,
--- --   capabilities = capabilities
--- -- }
---
--- nvim_lsp.csharp_ls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -131,7 +84,7 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
