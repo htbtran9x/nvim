@@ -1,11 +1,11 @@
 require('v1.base')
-require('v1.highlights')
 
 if vim.g.vscode then
   require('v1.vs-maps')
 else
   require('v1.maps')
-  require('v1.plugins')
+  -- require('v1.plugins')
+  -- require('v1.highlights')
 end
 
 
@@ -19,3 +19,5 @@ end
 if is_win then
   require('v1.windows')
 end
+
+
